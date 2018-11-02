@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fridge Buddy fridge page</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="fridgeBrosStyle.css">
+</head>
+<body>
+
+    <div id="wrapper">
+
+        <!-- This is the side bar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="mealplan.html">Meal Plan</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="fridge.html">Fridge</a></li>
+            </ul>
+        </div>
+
+        <!-- This is the page content-->
+
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-10">
+                        <a href="#" class="btn btn-default" id="side-toggle">≡</a>
+                        <h1>Your Fridge is Looking Good!</h1>
+                    </div>
+                </div>
+                
+                <table class="table table-striped" id="n">
+                        <thead>
+                          <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Monday</th>
+                            <th scope="col">Tuesday</th>
+                            <th scope="col">Wednesday</th>
+                            <th scope="col">Thursday</th>
+                            <th scope="col">Friday</th>
+                            <th scope="col">Saturday</th>
+                            <th scope="col">Sunday </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">Breakfast</th>
+                            <td>Eggs</td>
+                            <td>Eggs</td>
+                            <td>Cereal</td>
+                            <td>Cereal</td>
+                            <td>Toast</td>
+                            <td>Beans</td>
+                            <td>Toast</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Lunch</th>
+                            <td>Eggs</td>
+                            <td>Eggs</td>
+                            <td>Cereal</td>
+                            <td>Cereal</td>
+                            <td>Toast</td>
+                            <td>Beans</td>
+                            <td>Toast</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Dinner</th>
+                            <td>Eggs</td>
+                            <td>Eggs</td>
+                            <td>Cereal</td>
+                            <td>Cereal</td>
+                            <td>Toast</td>
+                            <td>Beans</td>
+                            <td>Toast</td>
+                          </tr>
+                          
+                        </tbody>
+                      </table>
+                
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        $("#side-toggle").click( function (e){
+            e.preventDefault();
+            $("#wrapper").toggleClass("menuDisplayed");
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
