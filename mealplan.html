@@ -7,14 +7,26 @@
     <link rel="stylesheet" href="fridgeBrosStyle.css">
 </head>
 <body>
+        <nav class="navbar navbar-dark bg-dark">
+                <form class="form-inline">
+                        <button class="btn btn-default" id="side-toggle">Menu</button>
+                        <object id="fridge-icon" type="image/svg+xml" data="fridge2-svg.svg" height="50" width="80"> Your browser does not support svg images</object>
+                        
+                </form>
+                <span id="nav-title" class="navbar-text">
+                        Fridge Buddy
+                </span>
+                <form class="form-inline">
+                        <button class="btn btn-outline-default" type="button" onclick="window.location.href='profile.html'">Profile</button>
+                        </form>
+        </nav>
 
     <div id="wrapper">
 
         <!-- This is the side bar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="mealplan.html">Meal Plan</a></li>
+                <li style="background:#1ca8dd;"><a href="mealplan.html">Meal Plan</a></li>
                 <li><a href="recipes.html">Recipes</a></li>
                 <li><a href="fridge.html">Fridge</a></li>
             </ul>
@@ -26,7 +38,6 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-10">
-                        <button class="btn btn-default" id="side-toggle">Menu</button>
                         <h1>Your Fridge is Looking Good!</h1>
                     </div>
                 </div>

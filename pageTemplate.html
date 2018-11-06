@@ -8,49 +8,37 @@
 </head>
 <body>
 
-
-
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbarTop">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                  <a class="navbar-brand" href="#">Hidden brand</a>
-                  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
-                  </ul>
-                  <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                  </form>
-                </div>
-              </nav>
-    
+    <nav class="navbar navbar-dark bg-dark">
+            <form class="form-inline">
+                    <button class="btn btn-default" id="side-toggle">Menu</button>
+                    <object id="fridge-icon" type="image/svg+xml" data="fridge2-svg.svg" height="50" width="80"> Your browser does not support svg images</object>
+                    
+            </form>
+            <span id="nav-title" class="navbar-text">
+                    Fridge Buddy
+            </span>
+            <form class="form-inline">
+                    <button class="btn btn-outline-default" type="button" onclick="window.location.href='profile.html'">Profile</button>
+                    </form>
+    </nav>
 
     <div id="wrapper">
 
+        
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="mealplan.html">Meal Plan</a></li>
-                <li><a href="recipes.html">Recipes</a></li>
-                <li><a href="fridge.html">Fridge</a></li>
+                <li style="background:#1ca8dd;" id="mealplanSide"><a href="mealplan.html">Meal Plan</a></li>
+                <li id="recipesSide"><a href="recipes.html">Recipes</a></li>
+                <li id="fridgeSide"><a href="fridge.html">Fridge</a></li>
             </ul>
         </div>
+        
 
+    
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-10">
-                        <button class="btn btn-default" id="side-toggle">Menu</button>
                         <h1>TITLE GOES HERE</h1>
                         <p>CONTENT SHOULD GO HERE PLEASE REMOVE </p>
                     </div>
@@ -66,6 +54,8 @@
             e.preventDefault();
             $("#wrapper").toggleClass("menuDisplayed");
         });
+
+        
     </script>
 
 </body>

@@ -4,7 +4,7 @@
     width: 0;
     height: 100%;
     overflow-y: hidden;
-    background: #95b661
+    background: #58af07bb
 }
 
 
@@ -26,7 +26,7 @@ body { background: rgb(231, 231, 231) !important; } /* Adding !important forces 
 }
 
 .list-group{
-    border: 5px #95b661;
+    border: 5px #1bc98e;
 }
 
 #wrapper.menuDisplayed #page-content-wrapper {
@@ -46,9 +46,18 @@ body { background: rgb(231, 231, 231) !important; } /* Adding !important forces 
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #ddd;
+    color: rgb(233, 233, 233);
 }
 
 .sidebar-nav li a:hover {
-    background:rgb(209, 108, 80);
+    color:rgb(255, 255, 255);
 }
+
+#nav-title {
+    color: whitesmoke
+}
+
+#fridge-icon {
+    text-align: left
+}
+
