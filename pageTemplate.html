@@ -7,8 +7,6 @@
         crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link rel="stylesheet" href="fridgeBrosStyle.css">
-    <!-- Custom styles for this template -->
-    <link href="css/simple-sidebar.css" rel="stylesheet">
 </head>
 
 <body>
@@ -41,11 +39,7 @@
                         <li style="background:#1ca8dd;"><a href="fridge.html">Fridge</a></li>
                 </ul>
             </div>
-            <!-- /#sidebar-wrapper -->
-        
-
-
-
+        <!-- /#sidebar-wrapper -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
@@ -59,14 +53,13 @@
 
     </div>
 
+
     <script>
-        $("#wrapper").toggleClass("menuDisplayed");
-        $("#side-toggle").click(function (e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("menuDisplayed");
-        });
-
-
+        $("#wrapper").toggleClass("toggled");
+        $("#side-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
     </script>
 
 </body>

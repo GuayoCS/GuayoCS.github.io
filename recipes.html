@@ -44,75 +44,76 @@
                     <div class="col-lg-10">
                         <h1>Recipe Suggestions</h1>
                         <div id="search-bar">
-                            <input class="form-control" type="text" placeholder="What are you in the mood for today?" aria-label="Search">
-                            <button class= "btn btn-default" type = "button">Search</button>
+                            <input class="form-control" type="text" placeholder="What are you in the mood for today?"
+                                aria-label="Search">
+                            <button class="btn btn-default" type="button">Search</button>
                         </div>
 
                         <table class="table table-striped" id="n">
-                                
-                                <tbody>
-                                        <tr>
-                                            <td>
-                                                <h5>Spaghetti</h5>
-                                                <img src= "recipe-images/Spaghetti.gif" height = "150" width = "150"/><br>
-                                                <button class= "btn btn-default">add</button>
-                                                <button class= "btn btn-default">remove</button>
-                                            </td>
-                                            <td>Description of Spaghetti</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h5>Chicken Salad</h5>
-                                                <img src= "recipe-images/Chicken-Salad.gif" height = "150" width = "150"/><br>
-                                                <button class= "btn btn-default">add</button>
-                                                <button class= "btn btn-default">remove</button>
-                                            </td>
-                                            <td>Description of Chicken Salad</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h5>Brownie</h5>
-                                                <img src= "recipe-images/Brownie.gif" height = "150" width = "150"/><br>
-                                                <button class= "btn btn-default">add</button>
-                                                <button class= "btn btn-default">remove</button>
-                                            </td>
-                                            <td>Description of Chicken Salad</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h5>Cake</h5>
-                                                <img src= "recipe-images/Cake.gif" height = "150" width = "150"/><br>
-                                                <button class= "btn btn-default">add</button>
-                                                <button class= "btn btn-default">remove</button>
-                                            </td>
-                                            <td>Description of Cake</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h5>Fish</h5>
-                                                <img src= "recipe-images/Fish.gif" height = "150" width = "150"/><br>
-                                                <button class= "btn btn-default">add</button>
-                                                <button class= "btn btn-default">remove</button>
-                                            </td>
-                                            <td>Description of fish</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h5>Spicy</h5>
-                                                <img src= "recipe-images/Spicy.gif" height = "150" width = "150"/><br>
-                                                <button class= "btn btn-default">add</button>
-                                                <button class= "btn btn-default">remove</button>
-                                            </td>
-                                            <td>Description of Spicy food</td>
-                                        </tr>
-                                        <tr></tr>
-                                        <tr></tr>
-                                        <tr></tr>
-                                </tbody>
+
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h5>Spaghetti</h5>
+                                        <img src="recipe-images/Spaghetti.gif" height="150" width="150" /><br>
+                                        <button class="btn btn-default">add</button>
+                                        <button class="btn btn-default">remove</button>
+                                    </td>
+                                    <td>Description of Spaghetti</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h5>Chicken Salad</h5>
+                                        <img src="recipe-images/Chicken-Salad.gif" height="150" width="150" /><br>
+                                        <button class="btn btn-default">add</button>
+                                        <button class="btn btn-default">remove</button>
+                                    </td>
+                                    <td>Description of Chicken Salad</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h5>Brownie</h5>
+                                        <img src="recipe-images/Brownie.gif" height="150" width="150" /><br>
+                                        <button class="btn btn-default">add</button>
+                                        <button class="btn btn-default">remove</button>
+                                    </td>
+                                    <td>Description of Chicken Salad</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h5>Cake</h5>
+                                        <img src="recipe-images/Cake.gif" height="150" width="150" /><br>
+                                        <button class="btn btn-default">add</button>
+                                        <button class="btn btn-default">remove</button>
+                                    </td>
+                                    <td>Description of Cake</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h5>Fish</h5>
+                                        <img src="recipe-images/Fish.gif" height="150" width="150" /><br>
+                                        <button class="btn btn-default">add</button>
+                                        <button class="btn btn-default">remove</button>
+                                    </td>
+                                    <td>Description of fish</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h5>Spicy</h5>
+                                        <img src="recipe-images/Spicy.gif" height="150" width="150" /><br>
+                                        <button class="btn btn-default">add</button>
+                                        <button class="btn btn-default">remove</button>
+                                    </td>
+                                    <td>Description of Spicy food</td>
+                                </tr>
+                                <tr></tr>
+                                <tr></tr>
+                                <tr></tr>
+                            </tbody>
                         </table>
 
-                    
-                        
+
+
                     </div>
                 </div>
             </div>
@@ -120,12 +121,12 @@
 
     </div>
 
-    <script>
-        $("#wrapper").toggleClass("menuDisplayed");
-        $("#side-toggle").click(function (e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("menuDisplayed");
-        });
+<script>
+        $("#wrapper").toggleClass("toggled");
+        $("#side-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
     </script>
 
 </body>
