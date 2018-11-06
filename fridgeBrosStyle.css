@@ -54,7 +54,8 @@ body { background: rgb(231, 231, 231) !important; } /* Adding !important forces 
 }
 
 #nav-title {
-    color: whitesmoke
+    color: whitesmoke;
+    font-size: 20px;
 }
 
 #fridge-icon {
