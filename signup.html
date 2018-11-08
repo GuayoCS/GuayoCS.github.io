@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="https://getbootstrap.com/favicon.ico">
-
     <title>Signin Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
@@ -20,19 +18,68 @@
       <h1>Fridge Buddy</h1>
       <br>
       <object id="fridge-icon" type="image/svg+xml" data="fridge-svg.svg" height="72" width="80"> Your browser does not support svg images</object>
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-      </div>
-      <button class="btn btn-lg btn-primary btn-block" type="button" onclick="window.location.href='mealplan.html'">Log in</button>
-      <button class="btn btn-lg btn-primary btn-block" type="button" onclick="window.location.href='signup.html'">Sign </button>
-      <p class="mt-5 mb-3 text-muted">© 2018-2019</p>
-    </form>
-  
+      
+    </form> 
 
-</body></html>
+  
+            <div class="cotainer">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header"><h1>Sign Up</h1></div>
+                                <div class="card-body">
+                                    <form name="my-form" onsubmit="return validform()" action="success.php" method="">
+                                        <div class="form-group row">
+                                            <label for="full_name" class="col-md-4 col-form-label text-md-right">Full Name</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="full_name" class="form-control" name="full-name">
+                                            </div>
+                                        </div>
+        
+                                        <div class="form-group row">
+                                            <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="email_address" class="form-control" name="email-address">
+                                            </div>
+                                        </div>
+           
+                                        <div class="form-group row">
+                                            <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="phone_number" class="form-control">
+                                            </div>
+                                        </div>
+        
+                                        <div class="form-group row">
+                                            <label for="present_address" class="col-md-4 col-form-label text-md-right">Present Address</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="present_address" class="form-control">
+                                            </div>
+                                        </div>
+        
+                                        <div class="form-group row">
+                                            <label for="permanent_address" class="col-md-4 col-form-label text-md-right">Permanent Address</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="permanent_address" class="form-control" name="permanent-address">
+                                            </div>
+                                        </div>
+        
+                                        
+        
+                                            <div class="col-md-6 offset-md-4">
+                                                <button type="submit" class="btn btn-primary">
+                                                Register
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        
+       
+
+</body>
+</html>
