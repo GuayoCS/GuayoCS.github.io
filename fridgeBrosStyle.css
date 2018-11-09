@@ -33,13 +33,6 @@ body { background: rgb(241, 241, 241) !important; } /* Adding !important forces 
     padding-left: 250px;
 }
 
-.target{
-    width: 150px;
-    height: 50px;
-    padding: 10px;
-    
-}
-
 
 #nav-title {
     color: whitesmoke;
@@ -102,6 +95,26 @@ body {
 }
 
 
+/* Style for Choose IMG button on profile page */
+
+#custom-button {
+  padding: 10px;
+  color: white;
+  background-color: #58af07bb;
+  border: 10px #000;
+  cursor: pointer;
+}
+
+#custom-button:hover {  
+  background-color: #65a528
+}
+
+#custom-text {
+  margin-left: 10px;
+  color: #aaa;
+
+}
+
 /* Sidebar Styles */
 
 .sidebar-nav {
@@ -148,12 +161,6 @@ body {
   background: none;
 }
 
-.list-group-item {
-  font-size: 15px; 
-}
-
-
-
 @media(min-width:768px) {
   #wrapper {
     padding-left: 0;
@@ -175,5 +182,4 @@ body {
     position: relative;
     margin-right: 0;
   }
-
 }
