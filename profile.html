@@ -20,9 +20,9 @@
 
 </head>
 
-<body>
+<body onload="load()">
 
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar sticky-top navbar-dark bg-dark">
         <form class="form-inline">
             <object id="fridge-icon" type="image/svg+xml" data="fridge2-svg.svg" height="50" width="40"> Your browser
                 does not support svg images</object>
@@ -54,31 +54,36 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-10">
-                        <h1> Welcome, "User Name" </h1>
-                        <p> 
+                        <h1 id="welcome"> Welcome, "User Name" </h1>
+                        <p>
                             <hr>
-                                <div class="container bootstrap snippet">
-                                    <div class="row">
-                                        <div class="col-sm-10"><h1>User name</h1></div>
+                            <div class="container bootstrap snippet">
+                                <div class="row">
+                                    <div class="col-sm-10">
+                                        <h1>User name</h1>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-sm-3"><!--left col-->
-                                            
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <!--left col-->
 
-                                    <div class="text-center">
-                                        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
-                                        
-                                        <input type="file" id="real-file-button" class="text-center center-block file-upload" hidden="hidden">
-                                        <button type="button" id="custom-button">Choose IMG</button>
-                                        <span id="custom-text"></span>
-                                    </div><br>
 
-                                            
+                                        <div class="text-center">
+                                            <img id="picture" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail"
+                                                alt="avatar">
+
+                                            <input type="file" id="real-file-button" class="text-center center-block file-upload"
+                                                hidden="hidden">
+                                            <button type="button" id="custom-button">Choose IMG</button>
+                                            <span id="custom-text"></span>
+                                        </div><br>
+
+
                                         <div class="panel panel-default">
                                             <div class="panel-heading"> <i class="fa fa-link fa-1x"></i></div>
                                         </div>
-                                        
-                                       <!----
+
+                                        <!----
                                         <ul class="list-group">
                                             <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
                                             <li class="list-group-item text-right"><span class="pull-left"><strong>Shares</strong></span> 125</li>
@@ -86,94 +91,139 @@
                                             <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
                                             <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
                                         </ul> -->
-                                            
+
                                         <div class="panel panel-default">
                                             <div class="panel-heading"></div>
                                             <div class="panel-body">
-                                                <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
+                                                <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i>
+                                                <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i>
+                                                <i class="fa fa-google-plus fa-2x"></i>
                                             </div>
                                         </div>
-                                        
-                                        </div><!--/col-3-->
-                                        <div class="col-sm-9">
-                                            <ul class="nav nav-tabs">
-                                            </ul>
 
-                                            
-                                            <div class="tab-content">
-                                                <div class="tab-pane active" id="home">
-                                                
-                                                    <form class="form" action="##" method="post" id="registrationForm">
-                                                        <div class="form-group">
-                                                        
-                                                            <div class="col-xs-6">
-                                                                <label for="first_name"><h4>First name</h4></label>
-                                                                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name" title="enter your first name if any.">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                        
-                                                            <div class="col-xs-6">
-                                                                <label for="last_name"><h4>Last name</h4></label>
-                                                                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name" title="enter your last name if any.">
-                                                            </div>
-                                                        </div>
-                                        
-                                                        <div class="form-group">
-                                                        
-                                                            <div class="col-xs-6">
-                                                                <label for="phone"><h4>Phone</h4></label>
-                                                                <input type="text" class="form-control" name="phone" id="phone" placeholder="(xxx) xxx-xxxx" title="enter your phone number if any.">
-                                                            </div>
-                                                        </div>
-                                        
-                                                        <div class="form-group">
-                                                            <div class="col-xs-6">
-                                                                <label for="mobile"><h4>Mobile</h4></label>
-                                                                <input type="text" class="form-control" name="mobile" id="mobile" placeholder="(xxx) xxx-xxxx" title="enter your mobile number if any.">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                        
-                                                            <div class="col-xs-6">
-                                                                <label for="email"><h4>Email</h4></label>
-                                                                <input type="email" class="form-control" name="email" id="email" placeholder="your@email.com" title="enter your email.">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            
-                                                            <div class="col-xs-6">
-                                                                <label for="email"><h4>Location</h4></label>
-                                                                <input type="email" class="form-control" id="location" placeholder="City, State / Zipcode" title="enter a location">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            
-                                                            <div class="col-xs-6">
-                                                                <label for="password"><h4>Password</h4></label>
-                                                                <input type="password" class="form-control" name="password" id="password" placeholder="Password" title="enter your password.">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            
-                                                            <div class="col-xs-6">
-                                                                <label for="password2"><h4>Verify</h4></label>
-                                                                <input type="password" class="form-control" name="password2" id="password2" placeholder="Re-enter password" title="enter your password2.">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <div class="col-xs-12">
-                                                                    <br>
-                                                                    <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                                                                </div>
-                                                        </div>
-                                                    </form>
-                                            </div><!--/tab-pane-->
-                                
-                                        </div><!--/tab-content-->
+                                    </div>
+                                    <!--/col-3-->
+                                    <div class="col-sm-9">
+                                        <ul class="nav nav-tabs">
+                                        </ul>
 
-                                        </div><!--/col-9-->
-                                    </div><!--/row-->
+
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="home">
+
+                                                <div class="form" id="registrationForm">
+                                                    <div class="form-group">
+
+                                                        <div class="col-xs-6">
+                                                            <label for="first_name">
+                                                                <h4>First name</h4>
+                                                            </label>
+                                                            <input type="text" class="form-control" name="first_name"
+                                                                id="first_name" placeholder="First Name" title="enter your first name if any.">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+
+                                                        <div class="col-xs-6">
+                                                            <label for="last_name">
+                                                                <h4>Last name</h4>
+                                                            </label>
+                                                            <input type="text" class="form-control" name="last_name" id="last_name"
+                                                                placeholder="Last Name" title="enter your last name if any.">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+
+                                                        <div class="col-xs-6">
+                                                            <label for="phone">
+                                                                <h4>Phone</h4>
+                                                            </label>
+                                                            <input type="text" class="form-control" name="phone" id="phone"
+                                                                placeholder="(xxx) xxx-xxxx" title="enter your phone number if any.">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+
+                                                        <div class="col-xs-6">
+                                                            <label for="email">
+                                                                <h4>Email</h4>
+                                                            </label>
+                                                            <input type="email" class="form-control" name="email" id="email"
+                                                                placeholder="your@email.com" title="enter your email.">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+
+                                                        <div class="col-xs-6">
+                                                            <label for="location">
+                                                                <h4>Location</h4>
+                                                            </label>
+                                                            <input type="email" class="form-control" id="location"
+                                                                placeholder="City, State / Zipcode" title="enter a location">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                            <label for="Dietary Restrictions" class="col-md-4 col-form-label text-md-right"><h4>Dietary Restrictions</h4></label>
+                                                            <div class="col-md-4">
+                                                                
+                
+                                                                <input class="form-check-input" type="checkbox" value="" id="glutenCheck">
+                                                                <label class="form-check-label" for="glutenCheck">gluten</label><br>
+                
+                                                                <input class="form-check-input" type="checkbox" value="" id="poultryCheck">
+                                                                <label class="form-check-label" for="poultryCheck">poultry</label><br>
+                                                                
+                                                                <input class="form-check-input" type="checkbox" value="" id="redmeatCheck">
+                                                                <label class="form-check-label" for="redmeatCheck">red meat</label><br>
+                
+                                                                <input class="form-check-input" type="checkbox" value="" id="fishCheck">
+                                                                <label class="form-check-label" for="fishCheck">fish</label><br>
+                
+                                                                <input class="form-check-input" type="checkbox" value="" id="soyCheck">
+                                                                <label class="form-check-label" for="soyCheck">soy</label>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <input class="form-check-input" type="checkbox" value="" id="nutsCheck">
+                                                                <label class="form-check-label" for="nutsCheck">nuts</label><br>
+                
+                                                                <input class="form-check-input" type="checkbox" value="" id="shellfishCheck">
+                                                                <label class="form-check-label" for="shellfishCheck">shellfish</label><br>
+                
+                                                                <input class="form-check-input" type="checkbox" value="" id="milkCheck">
+                                                                <label class="form-check-label" for="milkCheck">milk</label><br>
+                
+                                                                <input class="form-check-input" type="checkbox" value="" id="eggsCheck">
+                                                                <label class="form-check-label" for="eggsCheck">eggs</label><br>
+                
+                                                                <input class="form-check-input" type="checkbox" value="" id="wheatCheck">
+                                                                <label class="form-check-label" for="wheatCheck">wheat</label><br>
+                                                            </div>
+                                                        </div>
+                                                </div>
+
+
+                                                    <div class="form-group">
+                                                        <div class="col-xs-12">
+                                                            <br>
+                                                            <button onclick="save()" class="btn btn-lg btn-success" >
+                                                              Save</button>
+                                                        </div>
+                                                    </div>
+
+                                                    
+                                            </div>
+                                            <!--/tab-pane-->
+
+                                        </div>
+                                        <!--/tab-content-->
+
+                                    </div>
+                                    <!--/col-9-->
+                                </div>
+                                <!--/row-->
 
 
 
@@ -186,41 +236,166 @@
     </div>
 
     <script>
-            $("#wrapper").toggleClass("toggled");
-            $("#side-toggle").click(function(e) {
+        $("#wrapper").toggleClass("toggled");
+        $("#side-toggle").click(function (e) {
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         });
-    </script>
 
-    <!-- Script for changing profile picture -->
-    <script>
-            $(document).ready(function() {
-                var readURL = function(input) {
-                    if (input.files && input.files[0]) {
-                        var reader = new FileReader();
 
-                        reader.onload = function (e) {
-                            $('.avatar').attr('src', e.target.result);
-                        }
+        // db functions 
+        // first, last, phone, email, location
+        // create an array of size 5 and then populate with information
 
-                        reader.readAsDataURL(input.files[0]);
+
+        function save() {
+            var first_name = document.getElementById('first_name').value;
+            localStorage.setItem('first_name', first_name);
+
+            var last_name = document.getElementById('last_name').value;
+            localStorage.setItem('last_name', last_name);
+
+            var phone = document.getElementById('phone').value;
+            localStorage.setItem('phone', phone);
+
+            var email = document.getElementById('email').value;
+            localStorage.setItem('email', email);
+
+            var location = document.getElementById('location').value;
+            localStorage.setItem('location', location);
+
+            var picture = document.getElementById('picture').src;
+            localStorage.setItem('picture', picture);
+
+            // put checkbboxes here
+            var glutenCheck = document.getElementById('glutenCheck').checked;
+            localStorage.setItem('glutenCheck',glutenCheck);
+
+            var poultryCheck = document.getElementById('poultryCheck').checked;
+            localStorage.setItem('poultryCheck',poultryCheck);
+
+            var redmeatCheck = document.getElementById('redmeatCheck').checked;
+            localStorage.setItem('redmeatCheck',redmeatCheck);
+
+            var fishCheck = document.getElementById('fishCheck').checked;
+            localStorage.setItem('fishCheck',fishCheck);
+
+            var soyCheck = document.getElementById('soyCheck').checked;
+            localStorage.setItem('soyCheck',soyCheck);
+
+            var nutsCheck = document.getElementById('nutsCheck').checked;
+            localStorage.setItem('nutsCheck',nutsCheck);
+
+            var shellfishCheck = document.getElementById('shellfishCheck').checked;
+            localStorage.setItem('shellfishCheck',shellfishCheck);
+
+            var milkCheck = document.getElementById('milkCheck').checked;
+            localStorage.setItem('milkCheck',milkCheck);
+
+            var eggsCheck = document.getElementById('eggsCheck').checked;
+            localStorage.setItem('eggsCheck',eggsCheck);
+
+            var wheatCheck = document.getElementById('wheatCheck').checked;
+            localStorage.setItem('wheatCheck',wheatCheck);
+        }
+
+        function load() {
+            var first_name = localStorage.getItem('first_name');
+            if (first_name) {
+                document.getElementById('first_name').value = first_name;
+                document.getElementById('welcome').innerHTML = 'Welcome, ' + first_name +'!'; 
+            }
+
+            var last_name = localStorage.getItem('last_name');
+            if (last_name) {
+                document.getElementById('last_name').value = last_name;
+            }
+
+            var phone = localStorage.getItem('phone');
+            if (phone) {
+                document.getElementById('phone').value = phone;
+            }
+
+            var email = localStorage.getItem('email');
+            if (email) {
+                document.getElementById('email').value = email;
+            }
+
+            var location = localStorage.getItem('location');
+            if (location) {
+                document.getElementById('location').value = location;
+            }
+
+             var picture = localStorage.getItem('picture');
+            if (picture) {
+                document.getElementById('picture').src = picture;
+            }
+
+            var location = localStorage.getItem('location');
+            if (location) {
+                document.getElementById('location').value = location;
+            }
+
+            var glutenCheck = JSON.parse(localStorage.getItem('glutenCheck'));
+            if (glutenCheck == true) {document.getElementById('glutenCheck').checked = true;}
+            
+            var poultryCheck = JSON.parse(localStorage.getItem('poultryCheck'));
+            if (poultryCheck == true) {document.getElementById('poultryCheck').checked = true;}
+
+            var redmeatCheck = JSON.parse(localStorage.getItem('redmeatCheck'));
+            if (redmeatCheck == true) {document.getElementById('redmeatCheck').checked = true;}
+
+            var fishCheck = JSON.parse(localStorage.getItem('fishCheck'));
+            if (fishCheck == true) {document.getElementById('fishCheck').checked = true;}
+
+            var soyCheck = JSON.parse(localStorage.getItem('soyCheck'));
+            if (soyCheck == true) {document.getElementById('soyCheck').checked = true;}
+
+            var nutsCheck = JSON.parse(localStorage.getItem('nutsCheck'));
+            if (nutsCheck == true) {document.getElementById('nutsCheck').checked = true;}
+
+            var shellfishCheck = JSON.parse(localStorage.getItem('shellfishCheck'));
+            if (shellfishCheck == true) {document.getElementById('shellfishCheck').checked = true;}
+
+            var milkCheck = JSON.parse(localStorage.getItem('milkCheck'));
+            if (milkCheck == true) {document.getElementById('milkCheck').checked = true;}
+
+            var eggsCheck = JSON.parse(localStorage.getItem('eggsCheck'));
+            if (eggsCheck == true) {document.getElementById('eggsCheck').checked = true;}
+
+            var wheatCheck = JSON.parse(localStorage.getItem('wheatCheck'));
+            if (wheatCheck == true) {document.getElementById('wheatCheck').checked = true;}
+            
+        }
+
+
+
+
+        //Script for changing profile picture 
+
+        $(document).ready(function () {
+            var readURL = function (input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('.avatar').attr('src', e.target.result);
                     }
+
+                    reader.readAsDataURL(input.files[0]);
                 }
+            }
 
-
-                $(".file-upload").on('change', function(){
-                    readURL(this);
-                });
+            $(".file-upload").on('change', function () {
+                readURL(this);
             });
-    </script>
+        });
 
-    <script>
         const realFileBtn = document.getElementById("real-file-button");
         const customBtn = document.getElementById("custom-button");
         const customTxt = document.getElementById("custom-text");
 
-        customBtn.addEventListener("click", function() {
+        customBtn.addEventListener("click", function () {
             realFileBtn.click();
         });
     </script>
