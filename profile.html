@@ -165,6 +165,45 @@
                                                         </div>
                                                     </div>
 
+                                                    <div class="form-group">
+                                                            <label for="Dietary Restrictions" class="col-md-4 col-form-label text-md-right"><h4>Dietary Restrictions</h4></label>
+                                                            <div class="col-md-4">
+                                                                
+                
+                                                                <input class="form-check-input" type="checkbox" value="" id="glutenCheck">
+                                                                <label class="form-check-label" for="glutenCheck">gluten</label><br>
+                
+                                                                <input class="form-check-input" type="checkbox" value="" id="poultryCheck">
+                                                                <label class="form-check-label" for="poultryCheck">poultry</label><br>
+                                                                
+                                                                <input class="form-check-input" type="checkbox" value="" id="redmeatCheck">
+                                                                <label class="form-check-label" for="redmeatCheck">red meat</label><br>
+                
+                                                                <input class="form-check-input" type="checkbox" value="" id="fishCheck">
+                                                                <label class="form-check-label" for="fishCheck">fish</label><br>
+                
+                                                                <input class="form-check-input" type="checkbox" value="" id="soyCheck">
+                                                                <label class="form-check-label" for="soyCheck">soy</label>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <input class="form-check-input" type="checkbox" value="" id="nutsCheck">
+                                                                <label class="form-check-label" for="nutsCheck">nuts</label><br>
+                
+                                                                <input class="form-check-input" type="checkbox" value="" id="shellfishCheck">
+                                                                <label class="form-check-label" for="shellfishCheck">shellfish</label><br>
+                
+                                                                <input class="form-check-input" type="checkbox" value="" id="milkCheck">
+                                                                <label class="form-check-label" for="milkCheck">milk</label><br>
+                
+                                                                <input class="form-check-input" type="checkbox" value="" id="eggsCheck">
+                                                                <label class="form-check-label" for="eggsCheck">eggs</label><br>
+                
+                                                                <input class="form-check-input" type="checkbox" value="" id="wheatCheck">
+                                                                <label class="form-check-label" for="wheatCheck">wheat</label><br>
+                                                            </div>
+                                                        </div>
+                                                </div>
+
 
                                                     <div class="form-group">
                                                         <div class="col-xs-12">
@@ -173,7 +212,8 @@
                                                               Save</button>
                                                         </div>
                                                     </div>
-                                                </div>
+
+                                                    
                                             </div>
                                             <!--/tab-pane-->
 
@@ -226,42 +266,106 @@
 
             var picture = document.getElementById('picture').src;
             localStorage.setItem('picture', picture);
+
+            // put checkbboxes here
+            var glutenCheck = document.getElementById('glutenCheck').checked;
+            localStorage.setItem('glutenCheck',glutenCheck);
+
+            var poultryCheck = document.getElementById('poultryCheck').checked;
+            localStorage.setItem('poultryCheck',poultryCheck);
+
+            var redmeatCheck = document.getElementById('redmeatCheck').checked;
+            localStorage.setItem('redmeatCheck',redmeatCheck);
+
+            var fishCheck = document.getElementById('fishCheck').checked;
+            localStorage.setItem('fishCheck',fishCheck);
+
+            var soyCheck = document.getElementById('soyCheck').checked;
+            localStorage.setItem('soyCheck',soyCheck);
+
+            var nutsCheck = document.getElementById('nutsCheck').checked;
+            localStorage.setItem('nutsCheck',nutsCheck);
+
+            var shellfishCheck = document.getElementById('shellfishCheck').checked;
+            localStorage.setItem('shellfishCheck',shellfishCheck);
+
+            var milkCheck = document.getElementById('milkCheck').checked;
+            localStorage.setItem('milkCheck',milkCheck);
+
+            var eggsCheck = document.getElementById('eggsCheck').checked;
+            localStorage.setItem('eggsCheck',eggsCheck);
+
+            var wheatCheck = document.getElementById('wheatCheck').checked;
+            localStorage.setItem('wheatCheck',wheatCheck);
         }
 
         function load() {
-            var storedValue1 = localStorage.getItem('first_name');
-            if (storedValue1) {
-                document.getElementById('first_name').value = storedValue1;
-                document.getElementById('welcome').innerHTML = 'Welcome, ' + storedValue1 +'!'; 
+            var first_name = localStorage.getItem('first_name');
+            if (first_name) {
+                document.getElementById('first_name').value = first_name;
+                document.getElementById('welcome').innerHTML = 'Welcome, ' + first_name +'!'; 
             }
 
-            var storedValue2 = localStorage.getItem('last_name');
-            if (storedValue2) {
-                document.getElementById('last_name').value = storedValue2;
+            var last_name = localStorage.getItem('last_name');
+            if (last_name) {
+                document.getElementById('last_name').value = last_name;
             }
 
-            var storedValue3 = localStorage.getItem('phone');
-            if (storedValue3) {
-                document.getElementById('phone').value = storedValue3;
+            var phone = localStorage.getItem('phone');
+            if (phone) {
+                document.getElementById('phone').value = phone;
             }
 
-            var storedValue4 = localStorage.getItem('email');
-            if (storedValue4) {
-                document.getElementById('email').value = storedValue4;
+            var email = localStorage.getItem('email');
+            if (email) {
+                document.getElementById('email').value = email;
             }
 
-            var storedValue5 = localStorage.getItem('location');
-            if (storedValue5) {
-                document.getElementById('location').value = storedValue5;
+            var location = localStorage.getItem('location');
+            if (location) {
+                document.getElementById('location').value = location;
             }
 
-             var storedValue6 = localStorage.getItem('picture');
-            if (storedValue6) {
-                document.getElementById('picture').src = storedValue6;
+             var picture = localStorage.getItem('picture');
+            if (picture) {
+                document.getElementById('picture').src = picture;
             }
+
+            var location = localStorage.getItem('location');
+            if (location) {
+                document.getElementById('location').value = location;
+            }
+
+            var glutenCheck = JSON.parse(localStorage.getItem('glutenCheck'));
+            if (glutenCheck == true) {document.getElementById('glutenCheck').checked = true;}
             
-            
+            var poultryCheck = JSON.parse(localStorage.getItem('poultryCheck'));
+            if (poultryCheck == true) {document.getElementById('poultryCheck').checked = true;}
 
+            var redmeatCheck = JSON.parse(localStorage.getItem('redmeatCheck'));
+            if (redmeatCheck == true) {document.getElementById('redmeatCheck').checked = true;}
+
+            var fishCheck = JSON.parse(localStorage.getItem('fishCheck'));
+            if (fishCheck == true) {document.getElementById('fishCheck').checked = true;}
+
+            var soyCheck = JSON.parse(localStorage.getItem('soyCheck'));
+            if (soyCheck == true) {document.getElementById('soyCheck').checked = true;}
+
+            var nutsCheck = JSON.parse(localStorage.getItem('nutsCheck'));
+            if (nutsCheck == true) {document.getElementById('nutsCheck').checked = true;}
+
+            var shellfishCheck = JSON.parse(localStorage.getItem('shellfishCheck'));
+            if (shellfishCheck == true) {document.getElementById('shellfishCheck').checked = true;}
+
+            var milkCheck = JSON.parse(localStorage.getItem('milkCheck'));
+            if (milkCheck == true) {document.getElementById('milkCheck').checked = true;}
+
+            var eggsCheck = JSON.parse(localStorage.getItem('eggsCheck'));
+            if (eggsCheck == true) {document.getElementById('eggsCheck').checked = true;}
+
+            var wheatCheck = JSON.parse(localStorage.getItem('wheatCheck'));
+            if (wheatCheck == true) {document.getElementById('wheatCheck').checked = true;}
+            
         }
 
 
