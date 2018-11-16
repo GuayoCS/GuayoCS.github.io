@@ -50,9 +50,9 @@
 
                 <hr>
 
-        
-                <button onclick="saveTable()">Save</button> <!-- This will save the current table to the table?-->
-                <button onclick="loadDefaultTable()">Reset</button>
+
+                <button onclick="saveTable()" class="btn btn-success">Save</button> <!-- This will save the current table to the table?-->
+                <button onclick="loadDefaultTable()" class="btn btn-danger">Reset</button>
                 <!--This will revert the table to the blank-->
 
                 <!--This is our blank table-->
@@ -145,30 +145,25 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <h3 class="list-title">
-                                    <ul class="list-group">
-                                        <div id="myDIV" class="myDIVheader">
-                                            <h4>Recipes</h4>
-                                        </div>
+                </div>
 
-                                        <ul id="myUL" class="myULlist">
-                                            <li class="list-group-item"><button id="source1" ondragstart="dragstart_handler(event);"
-                                                    draggable="true">Spaghetti</button></li>
-                                            <li class="list-group-item"><button id="source2" ondragstart="dragstart_handler(event);"
-                                                    draggable="true">Chicken Salad</button></li>
-                                            <li class="list-group-item"><button id="source3" ondragstart="dragstart_handler(event);"
-                                                    draggable="true">Fish</button></li>
-                                        </ul>
-                                </h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <ul class="list-group">
+                            <div id="myDIV" class="myDIVheader">
+                                <h4>Recipe List</h4>
                             </div>
-                        </div>
+                            <ul id="Your Recipe List" class="myULlist">
+                            </ul>
+                        </ul>
+
                     </div>
+
                 </div>
             </div>
+
         </div>
+
     </div>
 
     <script>
@@ -202,11 +197,27 @@
             if (mealTableEmpty) {
                 document.getElementById('tableSpot').innerHTML = mealTableEmpty;
             }
+            update();
+        }
+
+        function update() {
+            let list = document.getElementById("Your Recipe List");
+
+            while (list.hasChildNodes()) {
+                list.removeChild(list.firstChild);
+            }
+            let storageList = JSON.parse(localStorage.getItem('foodList'));
+
+            for (let i = 0; i < storageList.length; i++) {
+                list.innerHTML += '<li class="list-group-item"><button id=source"' + i + '" ondragstart="dragstart_handler(event);"draggable="true">'
+                    + storageList[i] + '</button></li>';
+            }
         }
 
         function load() {
             saveDefaultTable();
             loadTable();
+            update()
             console.log('saved empty table and loaded current table in localstorage');
         }
 
