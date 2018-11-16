@@ -44,10 +44,16 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-10">
-                        <h1>Schedule your meal plan by dragging and dropping!</h1>
+                        <h1>Here's the meal plan for the week</h1>
                     </div>
                 </div>
 
+                <hr>
+
+                <button>Save</button> <!-- This will save the current table to the table?-->
+                <button>Reset</button> <!--This will revert the table to the blank-->
+
+                <!--This is our blank table-->
                 <table class="table table-striped" id="n">
                     <thead>
                         <tr>
@@ -137,68 +143,64 @@
 
                     </tbody>
                 </table>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3 class="list-title">
+                            <ul class="list-group">
+                                <div id="myDIV" class="myDIVheader">
+                                    <h4>Recipes</h4>
+                                </div>
 
-                <table class="table" id="n">
-                    <tbody>
-                        <tr>
-                            <th scope="row">Recipes</th>
-                    <tbody>
-                        <td><button id="source1" ondragstart="dragstart_handler(event);" draggable="true">Spaghetti</button></td>
-                        <td><button id="source2" ondragstart="dragstart_handler(event);" draggable="true">Chicken Salad</button></td>
-                        <td><button id="source3" ondragstart="dragstart_handler(event);" draggable="true">Fish</button></td>
-                    </tbody>
-                    </tr>
-
-
-
-
-                    </tbody>
-                </table>
-
-                <div>
-                    <button id="orderButton"> Save Meal Plan</button>
+                                <ul id="myUL" class="myULlist">
+                                    <li class="list-group-item"><button id="source1" ondragstart="dragstart_handler(event);"
+                                            draggable="true">Spaghetti</button></li>
+                                    <li class="list-group-item"><button id="source2" ondragstart="dragstart_handler(event);"
+                                            draggable="true">Chicken Salad</button></li>
+                                    <li class="list-group-item"><button id="source3" ondragstart="dragstart_handler(event);"
+                                            draggable="true">Fish</button></li>
+                                </ul>
+                        </h3>
+                    </div>
                 </div>
-
             </div>
-        </div>
 
-        <script>
-            $("#wrapper").toggleClass("toggled");
-            $("#side-toggle").click(function (e) {
-                e.preventDefault();
+            <script>
                 $("#wrapper").toggleClass("toggled");
-            });
+                $("#side-toggle").click(function (e) {
+                    e.preventDefault();
+                    $("#wrapper").toggleClass("toggled");
+                });
 
-            /* code for draggables */
+                /* code for draggables */
 
-            function dragstart_handler(ev) {
-                console.log("dragStart: dropEffect = " + ev.dataTransfer.dropEffect + " ; effectAllowed = " + ev.dataTransfer.effectAllowed);
+                function dragstart_handler(ev) {
+                    console.log("dragStart: dropEffect = " + ev.dataTransfer.dropEffect + " ; effectAllowed = " + ev.dataTransfer.effectAllowed);
 
-                // Add this element's id to the drag payload so the drop handler will
-                // know which element to add to its tree
-                ev.dataTransfer.setData("text", ev.target.id);
-                ev.dataTransfer.effectAllowed = "move";
-            }
+                    // Add this element's id to the drag payload so the drop handler will
+                    // know which element to add to its tree
+                    ev.dataTransfer.setData("text", ev.target.id);
 
-            function drop_handler(ev) {
-                console.log("drop: dropEffect = " + ev.dataTransfer.dropEffect + " ; effectAllowed = " + ev.dataTransfer.effectAllowed);
+                }
 
-                ev.preventDefault();
-                // Get the id of the target and add the moved element to the target's DOM
-                var data = ev.dataTransfer.getData("text");
+                function drop_handler(ev) {
+                    console.log("drop: dropEffect = " + ev.dataTransfer.dropEffect + " ; effectAllowed = " + ev.dataTransfer.effectAllowed);
 
-                ev.target.appendChild(document.getElementById(data).cloneNode(true));
-                ev.target.removeChild(ev.target.childNodes[1]);
-                ev.preventDefault();
-            }
+                    ev.preventDefault();
+                    // Get the id of the target and add the moved element to the target's DOM
+                    var data = ev.dataTransfer.getData("text");
 
-            function dragover_handler(ev) {
-                console.log("dragOver: dropEffect = " + ev.dataTransfer.dropEffect + " ; effectAllowed = " + ev.dataTransfer.effectAllowed);
-                ev.preventDefault();
-                // Set the dropEffect to move
-                ev.dataTransfer.dropEffect = "move"
-            }
-        </script>
+                    ev.target.appendChild(document.getElementById(data).cloneNode(true));
+                    ev.target.removeChild(ev.target.childNodes[1]);
+                    ev.preventDefault();
+                }
+
+                function dragover_handler(ev) {
+                    console.log("dragOver: dropEffect = " + ev.dataTransfer.dropEffect + " ; effectAllowed = " + ev.dataTransfer.effectAllowed);
+                    ev.preventDefault();
+                    // Set the dropEffect to move
+                    ev.dataTransfer.dropEffect = "move"
+                }
+            </script>
 
 </body>
 
