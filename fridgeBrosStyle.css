@@ -115,6 +115,11 @@ body {
 
 }
 
+.target {
+  width: 120px;
+  height: 30px;
+}
+
 
 /*******************  Fridge Styles *************************/
 
