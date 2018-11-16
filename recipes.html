@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="fridgeBrosStyle.css">
 </head>
 
-<body onload="search()">
+<body onload="load()">
     <nav class="navbar sticky-top navbar-dark bg-dark">
         <form class="form-inline">
             <object id="fridge-icon" type="image/svg+xml" data="fridge2-svg.svg" height="50" width="40"> Your browser
@@ -42,81 +42,89 @@
             <div class="container-fluid">
                 <h1>Recipe Suggestions</h1>
                 <div id="search-bar">
-                       <input class="form-control" type="text" placeholder="What are you in the mood for today?"
-                           aria-label="Search">
-                       <button class="btn btn-default" type="button" onclick="search()">Search</button>
+                    <input class="form-control" type="text" placeholder="What are you in the mood for today?"
+                        aria-label="Search">
+                    <button class="btn btn-default" type="button" onclick="search()">Search</button>
                 </div>
 
-                <div class="row" >
-                    <div  class="col-md-4">
-                        <div id="list1">
-                                <table class="table table-striped" >
+                <br>
 
-                                        <tbody  >
-                                            <tr>
-                                                <td>
-                                                    <h5>Spaghetti</h5>
-                                                    <img src="recipe-images/Spaghetti.gif" height="150" width="150" /><br>
-                                                    <button class="btn btn-default" onclick='add("Spaghetti")'>add</button>
-                                                    <button class="btn btn-default" onclick='remove("Spaghetti")'>remove</button>
-                                                </td>
-                                                <td>Description of Spaghetti</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h5>Chicken Salad</h5>
-                                                    <img src="recipe-images/Chicken-Salad.gif" height="150" width="150" /><br>
-                                                    <button class="btn btn-default" onclick='add("Chicken Salad")'>add</button>
-                                                    <button class="btn btn-default" onclick='remove("Chicken Salad")'>remove</button>
-                                                </td>
-                                                <td>Description of Chicken Salad</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h5>Brownie</h5>
-                                                    <img src="recipe-images/Brownie.gif" height="150" width="150" /><br>
-                                                    <button class="btn btn-default" onclick='add("Brownie")'>add</button>
-                                                    <button class="btn btn-default" onclick='remove("Brownie")'>remove</button>
-                                                </td>
-                                                <td>Description of Chicken Salad</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h5>Cake</h5>
-                                                    <img src="recipe-images/Cake.gif" height="150" width="150" /><br>
-                                                    <button class="btn btn-default" onclick='add("Cake")'>add</button>
-                                                    <button class="btn btn-default" onclick='remove("Cake")'>remove</button>
-                                                </td>
-                                                <td>Description of Cake</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h5>Fish</h5>
-                                                    <img src="recipe-images/Fish.gif" height="150" width="150" /><br>
-                                                    <button class="btn btn-default" onclick='add("Fish")'>add</button>
-                                                    <button class="btn btn-default" onclick='remove("Fish")'>remove</button>
-                                                </td>
-                                                <td>Description of fish</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h5>Spicy</h5>
-                                                    <img src="recipe-images/Spicy.gif" height="150" width="150" /><br>
-                                                    <button class="btn btn-default" onclick='add("Spicy")'>add</button>
-                                                    <button class="btn btn-default" onclick='remove("Spicy")'>remove</button>
-                                                </td>
-                                                <td>Description of Spicy food</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="list1">
+                            <table class="table table-striped">
+
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <h5>Spaghetti</h5>
+                                            <img src="recipe-images/Spaghetti.gif" height="150" width="150" /><br>
+                                            <button class="btn btn-default" onclick='add("Spaghetti")'>add</button>
+                                            <button class="btn btn-default" onclick='remove("Spaghetti")'>remove</button>
+                                        </td>
+                                        <td>Description of Spaghetti</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h5>Chicken Salad</h5>
+                                            <img src="recipe-images/Chicken-Salad.gif" height="150" width="150" /><br>
+                                            <button class="btn btn-default" onclick='add("Chicken Salad")'>add</button>
+                                            <button class="btn btn-default" onclick='remove("Chicken Salad")'>remove</button>
+                                        </td>
+                                        <td>Description of Chicken Salad</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h5>Brownie</h5>
+                                            <img src="recipe-images/Brownie.gif" height="150" width="150" /><br>
+                                            <button class="btn btn-default" onclick='add("Brownie")'>add</button>
+                                            <button class="btn btn-default" onclick='remove("Brownie")'>remove</button>
+                                        </td>
+                                        <td>Description of Chicken Salad</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h5>Cake</h5>
+                                            <img src="recipe-images/Cake.gif" height="150" width="150" /><br>
+                                            <button class="btn btn-default" onclick='add("Cake")'>add</button>
+                                            <button class="btn btn-default" onclick='remove("Cake")'>remove</button>
+                                        </td>
+                                        <td>Description of Cake</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h5>Fish</h5>
+                                            <img src="recipe-images/Fish.gif" height="150" width="150" /><br>
+                                            <button class="btn btn-default" onclick='add("Fish")'>add</button>
+                                            <button class="btn btn-default" onclick='remove("Fish")'>remove</button>
+                                        </td>
+                                        <td>Description of fish</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h5>Spicy</h5>
+                                            <img src="recipe-images/Spicy.gif" height="150" width="150" /><br>
+                                            <button class="btn btn-default" onclick='add("Spicy")'>add</button>
+                                            <button class="btn btn-default" onclick='remove("Spicy")'>remove</button>
+                                        </td>
+                                        <td>Description of Spicy food</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        
+
                     </div>
                     <div class="col-md-4">
-                            <h3>Your Recipe List</h3>
+
+                        <ul class="list-group">
+                            <div id="myDIV" class="myDIVheader">
+                                <h4>Recipe List</h4>
+                            </div>
+
                             <ul id="Your Recipe List" class="myULlist">
-                                                                 
+            
                             </ul>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -124,62 +132,67 @@
 
     </div>
 
-<script>
+    <script>
         $("#wrapper").toggleClass("toggled");
-        $("#side-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
+        $("#side-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
 
-    function search(){
-        var x = document.getElementById("list1");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
+        function search() {
+            var x = document.getElementById("list1");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
         }
-    }
-    function add(string){
-        let list = JSON.parse(localStorage.getItem('foodList'));
-        if(!list){
-            list = new Array();
-        }
-        let index = list.indexOf(string);
-        if(index == -1){
-            list.push(string);
-        }
-        localStorage.setItem('foodList', JSON.stringify(list));
-        
-        update();
-    }
+        function add(string) {
+            let list = JSON.parse(localStorage.getItem('foodList'));
+            if (!list) {
+                list = new Array();
+            }
+            let index = list.indexOf(string);
+            if (index == -1) {
+                list.push(string);
+            }
+            localStorage.setItem('foodList', JSON.stringify(list));
 
-    function remove(string){
-        let list = JSON.parse(localStorage.getItem('foodList'));
-        if(!list){
-            list = new Array();
-        }
-        let index = list.indexOf(string);
-        if(index != -1){
-            list.splice(index, 1);
-        }
-        localStorage.setItem('foodList', JSON.stringify(list));
-       update();
-    }
-
-    function update(){
-        let list = document.getElementById("Your Recipe List");
-
-        while(list.hasChildNodes()){
-            list.removeChild(list.firstChild);
-        }
-        let storageList = JSON.parse(localStorage.getItem('foodList'));
-        
-        for(let i = 0; i < storageList.length; i++){
-            list.innerHTML += "<li>" + storageList[i] + "</li>";
+            update();
         }
 
-    }
-</script>
+        function remove(string) {
+            let list = JSON.parse(localStorage.getItem('foodList'));
+            if (!list) {
+                list = new Array();
+            }
+            let index = list.indexOf(string);
+            if (index != -1) {
+                list.splice(index, 1);
+            }
+            localStorage.setItem('foodList', JSON.stringify(list));
+            update();
+        }
+
+        function update() {
+            let list = document.getElementById("Your Recipe List");
+
+            while (list.hasChildNodes()) {
+                list.removeChild(list.firstChild);
+            }
+            let storageList = JSON.parse(localStorage.getItem('foodList'));
+
+            for (let i = 0; i < storageList.length; i++) {
+                list.innerHTML += '<li class="list-group-item">' + storageList[i] + "</li>";
+            }
+
+        }
+
+        function load() {
+            update();
+            search();
+        }
+    </script>
 
 </body>
 
