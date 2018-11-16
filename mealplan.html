@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="fridgeBrosStyle.css">
 </head>
 
-<body>
+<body onload="load()">
 
     <nav class="navbar sticky-top navbar-dark bg-dark">
         <form class="form-inline">
@@ -50,157 +50,199 @@
 
                 <hr>
 
-                <button>Save</button> <!-- This will save the current table to the table?-->
-                <button>Reset</button> <!--This will revert the table to the blank-->
+        
+                <button onclick="saveTable()">Save</button> <!-- This will save the current table to the table?-->
+                <button onclick="loadDefaultTable()">Reset</button>
+                <!--This will revert the table to the blank-->
 
                 <!--This is our blank table-->
-                <table class="table table-striped" id="n">
-                    <thead>
-                        <tr>
-                            <th scope="col"></th>
-                            <th scope="col">Monday</th>
-                            <th scope="col">Tuesday</th>
-                            <th scope="col">Wednesday</th>
-                            <th scope="col">Thursday</th>
-                            <th scope="col">Friday</th>
-                            <th scope="col">Saturday</th>
-                            <th scope="col">Sunday </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">Breakfast</th>
-                            <td>
-                                <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
-                            </td>
-                            <td>
-                                <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
-                            </td>
-                            <td>
-                                <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
-                            </td>
-                            <td>
-                                <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
-                            </td>
-                            <td>
-                                <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
-                            </td>
-                            <td>
-                                <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
-                            </td>
-                            <td>
-                                <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Lunch</th>
-                            <td>
-                                <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
-                            </td>
-                            <td>
-                                <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
-                            </td>
-                            <td>
-                                <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
-                            </td>
-                            <td>
-                                <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
-                            </td>
-                            <td>
-                                <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
-                            </td>
-                            <td>
-                                <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
-                            </td>
-                            <td>
-                                <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Dinner</th>
-                            <td>
-                                <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
-                            </td>
-                            <td>
-                                <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
-                            </td>
-                            <td>
-                                <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
-                            </td>
-                            <td>
-                                <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
-                            </td>
-                            <td>
-                                <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
-                            </td>
-                            <td>
-                                <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
-                            </td>
-                            <td>
-                                <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
-                            </td>
-                        </tr>
+                <div id="tableSpot">
+                    <table class="table table-striped" id="mealTable">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Monday</th>
+                                <th scope="col">Tuesday</th>
+                                <th scope="col">Wednesday</th>
+                                <th scope="col">Thursday</th>
+                                <th scope="col">Friday</th>
+                                <th scope="col">Saturday</th>
+                                <th scope="col">Sunday </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Breakfast</th>
+                                <td>
+                                    <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
+                                </td>
+                                <td>
+                                    <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
+                                </td>
+                                <td>
+                                    <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
+                                </td>
+                                <td>
+                                    <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
+                                </td>
+                                <td>
+                                    <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
+                                </td>
+                                <td>
+                                    <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
+                                </td>
+                                <td>
+                                    <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Lunch</th>
+                                <td>
+                                    <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
+                                </td>
+                                <td>
+                                    <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
+                                </td>
+                                <td>
+                                    <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
+                                </td>
+                                <td>
+                                    <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
+                                </td>
+                                <td>
+                                    <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
+                                </td>
+                                <td>
+                                    <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
+                                </td>
+                                <td>
+                                    <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Dinner</th>
+                                <td>
+                                    <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
+                                </td>
+                                <td>
+                                    <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
+                                </td>
+                                <td>
+                                    <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
+                                </td>
+                                <td>
+                                    <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
+                                </td>
+                                <td>
+                                    <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
+                                </td>
+                                <td>
+                                    <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
+                                </td>
+                                <td>
+                                    <div class="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h3 class="list-title">
+                                    <ul class="list-group">
+                                        <div id="myDIV" class="myDIVheader">
+                                            <h4>Recipes</h4>
+                                        </div>
 
-                    </tbody>
-                </table>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3 class="list-title">
-                            <ul class="list-group">
-                                <div id="myDIV" class="myDIVheader">
-                                    <h4>Recipes</h4>
-                                </div>
-
-                                <ul id="myUL" class="myULlist">
-                                    <li class="list-group-item"><button id="source1" ondragstart="dragstart_handler(event);"
-                                            draggable="true">Spaghetti</button></li>
-                                    <li class="list-group-item"><button id="source2" ondragstart="dragstart_handler(event);"
-                                            draggable="true">Chicken Salad</button></li>
-                                    <li class="list-group-item"><button id="source3" ondragstart="dragstart_handler(event);"
-                                            draggable="true">Fish</button></li>
-                                </ul>
-                        </h3>
+                                        <ul id="myUL" class="myULlist">
+                                            <li class="list-group-item"><button id="source1" ondragstart="dragstart_handler(event);"
+                                                    draggable="true">Spaghetti</button></li>
+                                            <li class="list-group-item"><button id="source2" ondragstart="dragstart_handler(event);"
+                                                    draggable="true">Chicken Salad</button></li>
+                                            <li class="list-group-item"><button id="source3" ondragstart="dragstart_handler(event);"
+                                                    draggable="true">Fish</button></li>
+                                        </ul>
+                                </h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <script>
-                $("#wrapper").toggleClass("toggled");
-                $("#side-toggle").click(function (e) {
-                    e.preventDefault();
-                    $("#wrapper").toggleClass("toggled");
-                });
+    <script>
+        $("#wrapper").toggleClass("toggled");
+        $("#side-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
 
-                /* code for draggables */
+        /* code for saving tables  */
+        function saveTable() {
+            var mealTable = document.getElementById('tableSpot').innerHTML
+            localStorage.setItem('mealTable', mealTable);
+            console.log();
+        }
 
-                function dragstart_handler(ev) {
-                    console.log("dragStart: dropEffect = " + ev.dataTransfer.dropEffect + " ; effectAllowed = " + ev.dataTransfer.effectAllowed);
+        function saveDefaultTable() {
+            var mealTableEmpty = document.getElementById('tableSpot').innerHTML
+            localStorage.setItem('mealTableEmpty', mealTableEmpty);
+        }
 
-                    // Add this element's id to the drag payload so the drop handler will
-                    // know which element to add to its tree
-                    ev.dataTransfer.setData("text", ev.target.id);
+        function loadTable() {
+            var mealTable = localStorage.getItem('mealTable');
+            if (mealTable) {
+                document.getElementById('tableSpot').innerHTML = mealTable;
+            }
+        }
 
-                }
+        function loadDefaultTable() {
+            var mealTableEmpty = localStorage.getItem('mealTableEmpty');
+            if (mealTableEmpty) {
+                document.getElementById('tableSpot').innerHTML = mealTableEmpty;
+            }
+        }
 
-                function drop_handler(ev) {
-                    console.log("drop: dropEffect = " + ev.dataTransfer.dropEffect + " ; effectAllowed = " + ev.dataTransfer.effectAllowed);
+        function load() {
+            saveDefaultTable();
+            loadTable();
+            console.log('saved empty table and loaded current table in localstorage');
+        }
 
-                    ev.preventDefault();
-                    // Get the id of the target and add the moved element to the target's DOM
-                    var data = ev.dataTransfer.getData("text");
 
-                    ev.target.appendChild(document.getElementById(data).cloneNode(true));
-                    ev.target.removeChild(ev.target.childNodes[1]);
-                    ev.preventDefault();
-                }
 
-                function dragover_handler(ev) {
-                    console.log("dragOver: dropEffect = " + ev.dataTransfer.dropEffect + " ; effectAllowed = " + ev.dataTransfer.effectAllowed);
-                    ev.preventDefault();
-                    // Set the dropEffect to move
-                    ev.dataTransfer.dropEffect = "move"
-                }
-            </script>
+
+        /* code for draggables */
+
+        function dragstart_handler(ev) {
+            console.log("dragStart: dropEffect = " + ev.dataTransfer.dropEffect + " ; effectAllowed = " + ev.dataTransfer.effectAllowed);
+
+            // Add this element's id to the drag payload so the drop handler will
+            // know which element to add to its tree
+            ev.dataTransfer.setData("text", ev.target.id);
+
+        }
+
+        function drop_handler(ev) {
+            console.log("drop: dropEffect = " + ev.dataTransfer.dropEffect + " ; effectAllowed = " + ev.dataTransfer.effectAllowed);
+
+            ev.preventDefault();
+            // Get the id of the target and add the moved element to the target's DOM
+            var data = ev.dataTransfer.getData("text");
+
+            ev.target.appendChild(document.getElementById(data).cloneNode(true));
+            ev.target.removeChild(ev.target.childNodes[1]);
+            ev.preventDefault();
+        }
+
+        function dragover_handler(ev) {
+            console.log("dragOver: dropEffect = " + ev.dataTransfer.dropEffect + " ; effectAllowed = " + ev.dataTransfer.effectAllowed);
+            ev.preventDefault();
+            // Set the dropEffect to move
+            ev.dataTransfer.dropEffect = "move"
+        }
+    </script>
 
 </body>
 
