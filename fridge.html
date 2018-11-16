@@ -50,35 +50,37 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <h3 class="list-title"><ul class="list-group">
+                        <h3 class="list-title">
+                            <ul class="list-group">
                                 <div id="myDIV" class="myDIVheader">
                                     <h2>My Fridge</h2>
                                     <input type="text" id="myInput" placeholder="What's in the fridge?" class="myInputClass">
                                     <span onclick="newElement()" id="addBtn1" class="addBtn">Add</span>
                                 </div>
-                                  
+
                                 <ul id="myUL" class="myULlist">
                                     <li class="list-group-item" hidden="hidden">Eggs</li>
                                     <li class="list-group-item" hidden="hidden">Bread</li>
                                     <li class="list-group-item" hidden="hidden">Milk</li>
                                     <li class="list-group-item" hidden="hidden">Carrots</li>
-                                    <li class="list-group-item" hidden="hidden">Onions</li>                                
+                                    <li class="list-group-item" hidden="hidden">Onions</li>
                                 </ul>
                         </h3>
                     </div>
                     <div class="col-md-4">
-                        <h3 class="list-title"><ul class="list-group">
+                        <h3 class="list-title">
+                            <ul class="list-group">
                                 <div id="myDIV" class="myDIVheader">
-                                        <h2>Shopping List</h2>
-                                        <input type="text" id="myInput2" placeholder="Add to your shopping list!" class="myInputClass">
-                                        <span onclick="newElement2()" id="addBtn2" class="addBtn">Add</span>
-                                    </div>
-                                      
-                                    <ul id="myUL2" class="myULlist">
-                                        <li class="list-group-item2" hidden="hidden">Salmon Fillet</li>
-                                        <li class="list-group-item2" hidden="hidden">Chicken Breasts</li>
-                                        <li class="list-group-item2" hidden="hidden">Organic Ketchup</li>                        
-                                    </ul>
+                                    <h2>Shopping List</h2>
+                                    <input type="text" id="myInput2" placeholder="Add to your shopping list!" class="myInputClass">
+                                    <span onclick="newElement2()" id="addBtn2" class="addBtn">Add</span>
+                                </div>
+
+                                <ul id="myUL2" class="myULlist">
+                                    <li class="list-group-item" hidden="hidden">Salmon Fillet</li>
+                                    <li class="list-group-item" hidden="hidden">Chicken Breasts</li>
+                                    <li class="list-group-item" hidden="hidden">Organic Ketchup</li>
+                                </ul>
                                 <br>
                                 <a href="order.html">Order Now</a>
                         </h3>
@@ -91,8 +93,8 @@
 
     <!-- Script for the Menu -->
     <script>
-            $("#wrapper").toggleClass("toggled");
-            $("#side-toggle").click(function(e) {
+        $("#wrapper").toggleClass("toggled");
+        $("#side-toggle").click(function (e) {
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         });
@@ -101,106 +103,175 @@
     <!-- Script for the Fridge list -->
     <script>
         // Create a "close" button and append it to each list item
-            var myNodelist = document.getElementsByClassName("list-group-item");
-            var i;
-            for (i = 0; i < myNodelist.length; i++) {
+        var myNodelist = document.getElementsByClassName("list-group-item");
+        var i;
+        for (i = 0; i < myNodelist.length; i++) {
             var span = document.createElement("SPAN");
             var txt = document.createTextNode("\u00D7");
             span.className = "close";
             span.appendChild(txt);
             myNodelist[i].appendChild(span);
-            }
+        }
 
-            // Click on a close button to hide the current list item
-            var close = document.getElementsByClassName("close");
-            var i;
+        // Click on a close button to hide the current list item
+        var close = document.getElementsByClassName("close");
+        var i;
+        for (i = 0; i < close.length; i++) {
+            close[i].onclick = function () {
+                var div = this.parentElement;
+                div.style.display = "none";
+                //alert("this is the value: " + div.getItem.value);
+            }
+        }
+
+        // Create a new list item when clicking on the "Add" button
+        function newElement() {
+            var li = document.createElement("li");
+            var inputValue = document.getElementById("myInput").value;
+            var t = document.createTextNode(inputValue);
+            li.appendChild(t);
+            if (inputValue === '') {
+                alert("You must write something!");
+            } else {
+                document.getElementById("myUL").appendChild(li);
+                add(inputValue);
+            }
+            document.getElementById("myInput").value = "";
+
+            var span = document.createElement("SPAN");
+            var txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            li.appendChild(span);
+
             for (i = 0; i < close.length; i++) {
-                close[i].onclick = function() {
+                close[i].onclick = function () {
                     var div = this.parentElement;
                     div.style.display = "none";
                 }
             }
-
-            // Create a new list item when clicking on the "Add" button
-            function newElement() {
-                var li = document.createElement("li");
-                var inputValue = document.getElementById("myInput").value;
-                var t = document.createTextNode(inputValue);
-                li.appendChild(t);
-                if (inputValue === '') {
-                    alert("You must write something!");
-                } else {
-                    document.getElementById("myUL").appendChild(li);
-                }
-                document.getElementById("myInput").value = "";
-
-                var span = document.createElement("SPAN");
-                var txt = document.createTextNode("\u00D7");
-                span.className = "close";
-                span.appendChild(txt);
-                li.appendChild(span);
-
-                for (i = 0; i < close.length; i++) {
-                    close[i].onclick = function() {
-                        var div = this.parentElement;
-                        div.style.display = "none";
-                    }
-                }
-            }
+        }
     </script>
 
 
 
-    <!-- Script for the shopping list -->
+    <!-- Script for the shopping list --------------------------------->
     <script>
-            // Create a "close" button and append it to each list item
-                var myNodelist = document.getElementsByClassName("list-group-item2");
-                var i;
-                for (i = 0; i < myNodelist.length; i++) {
-                var span = document.createElement("SPAN");
-                var txt = document.createTextNode("\u00D7");
-                span.className = "close";
-                span.appendChild(txt);
-                myNodelist[i].appendChild(span);
+        // Create a "close" button and append it to each list item
+        var myNodelist = document.getElementsByClassName("list-group-item");
+        var i;
+        for (i = 0; i < myNodelist.length; i++) {
+            var span = document.createElement("SPAN");
+            var txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            myNodelist[i].appendChild(span);
+        }
+
+        // Click on a close button to hide the current list item
+        var close = document.getElementsByClassName("close");
+        var i;
+        for (i = 0; i < close.length; i++) {
+            close[i].onclick = function () {
+                var div = this.parentElement;
+                div.style.display = "none";
+            }
+        }
+
+        // Create a new list item when clicking on the "Add" button
+        function newElement2() {
+            var li = document.createElement("li");
+            var inputValue = document.getElementById("myInput2").value;
+            var t = document.createTextNode(inputValue);
+            li.appendChild(t);
+            if (inputValue === '') {
+                alert("You must write something!");
+            } else {
+                document.getElementById("myUL2").appendChild(li);
+                addShop(inputValue);
+            }
+            document.getElementById("myInput2").value = "";
+
+            var span = document.createElement("SPAN");
+            var txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            li.appendChild(span);
+
+            for (i = 0; i < close.length; i++) {
+                close[i].onclick = function () {
+                    var div = this.parentElement;
+                    div.style.display = "none";
                 }
-    
-                // Click on a close button to hide the current list item
-                var close = document.getElementsByClassName("close");
-                var i;
-                for (i = 0; i < close.length; i++) {
-                    close[i].onclick = function() {
-                        var div = this.parentElement;
-                        div.style.display = "none";
-                    }
-                }
-    
-                // Create a new list item when clicking on the "Add" button
-                function newElement2() {
-                    var li = document.createElement("li");
-                    var inputValue = document.getElementById("myInput2").value;
-                    var t = document.createTextNode(inputValue);
-                    li.appendChild(t);
-                    if (inputValue === '') {
-                        alert("You must write something!");
-                    } else {
-                        document.getElementById("myUL2").appendChild(li);
-                    }
-                    document.getElementById("myInput2").value = "";
-    
-                    var span = document.createElement("SPAN");
-                    var txt = document.createTextNode("\u00D7");
-                    span.className = "close";
-                    span.appendChild(txt);
-                    li.appendChild(span);
-    
-                    for (i = 0; i < close.length; i++) {
-                        close[i].onclick = function() {
-                            var div = this.parentElement;
-                            div.style.display = "none";
-                        }
-                    }
-                }
-        </script>
+            }
+        }
+    </script>
+
+    <!-- Script to store fridge items -->
+    <script>
+        function add(string) {
+            let list = JSON.parse(localStorage.getItem('fridgeList'));
+            if (!list) {
+                list = new Array();
+            }
+
+            let index = list.indexOf(string);
+
+            // Checks if recipe is already in localStorage
+            if (index == -1) {
+                list.push(string);
+            }
+            else {
+                alert("You already added the recipe!");
+            }
+            localStorage.setItem('fridgeList', JSON.stringify(list));
+        }
+
+        function remove(string) {
+            let list = JSON.parse(localStorage.getItem('fridgeList'));
+            if (!list) {
+                list = new Array();
+            }
+            let index = list.indexOf(string);
+            if (index != -1) {
+                list.splice(index, 1);
+            }
+            localStorage.setItem('fridgeList', JSON.stringify(list));
+        }
+    </script>
+
+    <!-- Script to store shopping list items -->
+    <script>
+        function addShop(string) {
+            let list = JSON.parse(localStorage.getItem('shoppingList'));
+            if (!list) {
+                list = new Array();
+            }
+
+            let index = list.indexOf(string);
+
+            // Checks if recipe is already in localStorage
+            if (index == -1) {
+                list.push(string);
+            }
+            else {
+                alert("You already added the recipe!");
+            }
+            localStorage.setItem('shoppingList', JSON.stringify(list));
+        }
+
+        function removeShop(string) {
+            let list = JSON.parse(localStorage.getItem('shoppingList'));
+            if (!list) {
+                list = new Array();
+            }
+            let index = list.indexOf(string);
+            if (index != -1) {
+                list.splice(index, 1);
+            }
+            localStorage.setItem('shoppingList', JSON.stringify(list));
+        }
+    </script>
 
 </body>
 

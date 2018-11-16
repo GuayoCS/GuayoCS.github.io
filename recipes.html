@@ -115,15 +115,7 @@
                     <div class="col-md-4">
                             <h3>Your Recipe List</h3>
                             <ul id="Your Recipe List" class="myULlist">
-<<<<<<< HEAD
-                                    <li class="list-group-item">Eggs</li>
-                                    <li class="list-group-item">Bread</li>
-                                    <li class="list-group-item">Milk</li>
-                                    <li class="list-group-item">Carrots</li>
-                                    <li class="list-group-item">Onions</li>                                
-=======
                                                                  
->>>>>>> 9184703fadbb833c3106d71ed687709f356101c1
                             </ul>
                     </div>
                 </div>
@@ -148,7 +140,7 @@
         }
     }
     function add(string){
-        let list = JSON.parse(localStorage.getItem('foodList'));
+        let list = JSON.parse(localStorage.getItem('recipeList'));
         if(!list){
             list = new Array();
         }
@@ -163,17 +155,13 @@
         else{
             alert("You already added the recipe!");
         }
-        localStorage.setItem('foodList', JSON.stringify(list));
-<<<<<<< HEAD
-
-=======
+        localStorage.setItem('recipeList', JSON.stringify(list));
         
         update();
->>>>>>> 9184703fadbb833c3106d71ed687709f356101c1
     }
 
     function remove(string){
-        let list = JSON.parse(localStorage.getItem('foodList'));
+        let list = JSON.parse(localStorage.getItem('recipeList'));
         if(!list){
             list = new Array();
         }
@@ -181,7 +169,7 @@
         if(index != -1){
             list.splice(index, 1);
         }
-        localStorage.setItem('foodList', JSON.stringify(list));
+        localStorage.setItem('recipeList', JSON.stringify(list));
        update();
     }
 
@@ -191,7 +179,7 @@
         while(list.hasChildNodes()){
             list.removeChild(list.firstChild);
         }
-        let storageList = JSON.parse(localStorage.getItem('foodList'));
+        let storageList = JSON.parse(localStorage.getItem('recipeList'));
         
         for(let i = 0; i < storageList.length; i++){
             list.innerHTML += "<li>" + storageList[i] + "</li>";
