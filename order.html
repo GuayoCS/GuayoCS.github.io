@@ -223,7 +223,8 @@
                             <button class="btn btn-primary btn-lg btn-block" type="button" onclick="window.location.href='orderSuccess.html'">Order
                                 Delivery</button>
                         </form>
-                    </div </div> </div> </div> <script>
+                    </div> 
+                    <script>
                         $("#wrapper").toggleClass("toggled");
                         $("#side-toggle").click(function (e) {
                             e.preventDefault();
@@ -268,15 +269,25 @@
                             let storageList = JSON.parse(localStorage.getItem('shoppingList'));
 
                             for (let i = 0; i < storageList.length; i++) {
-                                list.innerHTML += '<li class="list-group-item">' + storageList[i] + "</li>";
+                                var bruh = Math.random() * 10;
+                               // var number = "$" + bruh;
+                                list.innerHTML += '<li class="list-group-item">' + storageList[i] + '<span class="close"> $'+ Math.ceil(bruh) + '</span></li>';
                             }
 
                         }
 
                         function load() {
                             update();
+                            number();
+                        }
+
+                        function number() {
+                            var bruh = Math.random() * 10;
+                            var number = "$" + bruh;
+                            document.getElementsByClassName('randNum').innerHTML = number;
                         }
                     </script>
+
 
 </body>
 
