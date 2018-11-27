@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="loginSignupStyle.css">
   </head>
 
-  <body class="text-center">
+  <body class="text-center" onsubmit="populate()">
     <form class="form-signin">
       <h1>Fridge Buddy</h1>
       <br>
@@ -30,30 +30,37 @@
                                 <div class="card-body">
                                     <!--<form name="my-form" onsubmit="return validform()" action="success.php" method="">-->
                                         <div class="form-group row">
-                                            <label for="full_name" class="col-md-4 col-form-label text-md-right">Full Name</label>
+                                            <label for="first_name" class="col-md-4 col-form-label text-md-right">First Name</label>
                                             <div class="col-md-6">
-                                                <input type="text" id="full_name" class="form-control" name="full-name">
+                                                <input type="text" id="first_name" class="form-control" name="first-name">
                                             </div>
                                         </div>
+
+                                        <div class="form-group row">
+                                                <label for="last_name" class="col-md-4 col-form-label text-md-right">Last Name</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="last_name" class="form-control" name="last-name">
+                                                </div>
+                                            </div>
         
                                         <div class="form-group row">
-                                            <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                                            <label for="email" class="col-md-4 col-form-label text-md-right">E-mail Address</label>
                                             <div class="col-md-6">
-                                                <input type="text" id="email_address" class="form-control" name="email-address">
+                                                <input type="text" id="email" class="form-control" name="email">
                                             </div>
                                         </div>
            
                                         <div class="form-group row">
-                                            <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
+                                            <label for="phone" class="col-md-4 col-form-label text-md-right">Phone Number</label>
                                             <div class="col-md-6">
-                                                <input type="text" id="phone_number" class="form-control">
+                                                <input type="text" id="phone" class="form-control">
                                             </div>
                                         </div>
         
                                         <div class="form-group row">
-                                            <label for="present_address" class="col-md-4 col-form-label text-md-right">Present Address</label>
+                                            <label for="location" class="col-md-4 col-form-label text-md-right">Current Address</label>
                                             <div class="col-md-6">
-                                                <input type="text" id="present_address" class="form-control">
+                                                <input type="text" id="location" class="form-control">
                                             </div>
                                         </div>
 
@@ -96,7 +103,7 @@
                                         </div>
                  
                                    <div class="col-md-6 offset-md-4">
-                                                <button type="submit" class="btn btn-primary" onclick="window.location.href='mealplan.html'">
+                                                <button type="submit" class="btn btn-primary" onclick="window.location.href='mealplan.html'; populate()">
                                                 Register
                                                 </button>
                                             </div>
@@ -108,8 +115,58 @@
                     </div>
                 </div>
             </div>
-        
-       
+    <script>
+        function populate() {
+            var first_name = document.getElementById('first_name').value;
+            localStorage.setItem('first_name', first_name);
+
+            var last_name = document.getElementById('last_name').value;
+            localStorage.setItem('last_name', last_name);
+
+            var phone = document.getElementById('phone').value;
+            localStorage.setItem('phone', phone);
+
+            var email = document.getElementById('email').value;
+            localStorage.setItem('email', email);
+
+            var location = document.getElementById('location').value;
+            localStorage.setItem('location', location);
+
+
+            // put checkbboxes here
+            var glutenCheck = document.getElementById('glutenCheck').checked;
+            localStorage.setItem('glutenCheck',glutenCheck);
+
+            var poultryCheck = document.getElementById('poultryCheck').checked;
+            localStorage.setItem('poultryCheck',poultryCheck);
+
+            var redmeatCheck = document.getElementById('redmeatCheck').checked;
+            localStorage.setItem('redmeatCheck',redmeatCheck);
+
+            var fishCheck = document.getElementById('fishCheck').checked;
+            localStorage.setItem('fishCheck',fishCheck);
+
+            var soyCheck = document.getElementById('soyCheck').checked;
+            localStorage.setItem('soyCheck',soyCheck);
+
+            var nutsCheck = document.getElementById('nutsCheck').checked;
+            localStorage.setItem('nutsCheck',nutsCheck);
+
+            var shellfishCheck = document.getElementById('shellfishCheck').checked;
+            localStorage.setItem('shellfishCheck',shellfishCheck);
+
+            var milkCheck = document.getElementById('milkCheck').checked;
+            localStorage.setItem('milkCheck',milkCheck);
+
+            var eggsCheck = document.getElementById('eggsCheck').checked;
+            localStorage.setItem('eggsCheck',eggsCheck);
+
+            var wheatCheck = document.getElementById('wheatCheck').checked;
+            localStorage.setItem('wheatCheck',wheatCheck);
+            
+        }
+    </script>
+    
 
 </body>
 </html>

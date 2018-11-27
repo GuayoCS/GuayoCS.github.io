@@ -100,13 +100,14 @@ body {
 #custom-button {
   padding: 10px;
   color: white;
-  background-color: #58af07bb;
+  background-color: #28a745;
   border: 10px #000;
   cursor: pointer;
 }
 
 #custom-button:hover {  
-  background-color: #65a528
+  background-color: #218838;
+  border-color: #1e7e34;
 }
 
 #custom-text {
