@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="fridgeBrosStyle.css">
 </head>
 
-<body>
+<body onload="load()">
     <nav class="navbar sticky-top navbar-dark bg-dark">
         <form class="form-inline">
             <object id="fridge-icon" type="image/svg+xml" data="fridge2-svg.svg" height="50" width="40"> Your browser
@@ -59,11 +59,7 @@
                                 </div>
 
                                 <ul id="myUL" class="myULlist">
-                                    <li class="list-group-item" hidden="hidden">Eggs</li>
-                                    <li class="list-group-item" hidden="hidden">Bread</li>
-                                    <li class="list-group-item" hidden="hidden">Milk</li>
-                                    <li class="list-group-item" hidden="hidden">Carrots</li>
-                                    <li class="list-group-item" hidden="hidden">Onions</li>
+
                                 </ul>
                         </h3>
                     </div>
@@ -77,9 +73,7 @@
                                 </div>
 
                                 <ul id="myUL2" class="myULlist">
-                                    <li class="list-group-item" hidden="hidden">Salmon Fillet</li>
-                                    <li class="list-group-item" hidden="hidden">Chicken Breasts</li>
-                                    <li class="list-group-item" hidden="hidden">Organic Ketchup</li>
+
                                 </ul>
                                 <br>
                                 <a href="order.html">Order Now</a>
@@ -100,7 +94,9 @@
         });
     </script>
 
-    <!-- Script for the Fridge list -->
+
+
+    <!-- Script for the Fridge list ----------------------------------->
     <script>
         // Create a "close" button and append it to each list item
         var myNodelist = document.getElementsByClassName("list-group-item");
@@ -120,13 +116,13 @@
             close[i].onclick = function () {
                 var div = this.parentElement;
                 div.style.display = "none";
-                //alert("this is the value: " + div.getItem.value);
             }
         }
 
         // Create a new list item when clicking on the "Add" button
         function newElement() {
             var li = document.createElement("li");
+            li.setAttribute("class", "list-group-item");
             var inputValue = document.getElementById("myInput").value;
             var t = document.createTextNode(inputValue);
             li.appendChild(t);
@@ -148,6 +144,9 @@
                 close[i].onclick = function () {
                     var div = this.parentElement;
                     div.style.display = "none";
+                    var string = div.innerHTML;
+                    var newString = string.substr(0, string.length - 28);
+                    remove(newString);
                 }
             }
         }
@@ -158,21 +157,21 @@
     <!-- Script for the shopping list --------------------------------->
     <script>
         // Create a "close" button and append it to each list item
-        var myNodelist = document.getElementsByClassName("list-group-item");
+        var myNodelist = document.getElementsByClassName("list-group-item2");
         var i;
         for (i = 0; i < myNodelist.length; i++) {
             var span = document.createElement("SPAN");
             var txt = document.createTextNode("\u00D7");
-            span.className = "close";
+            span.className = "closeShop";
             span.appendChild(txt);
             myNodelist[i].appendChild(span);
         }
 
         // Click on a close button to hide the current list item
-        var close = document.getElementsByClassName("close");
+        var closeShop = document.getElementsByClassName("closeShop");
         var i;
-        for (i = 0; i < close.length; i++) {
-            close[i].onclick = function () {
+        for (i = 0; i < closeShop.length; i++) {
+            closeShop[i].onclick = function () {
                 var div = this.parentElement;
                 div.style.display = "none";
             }
@@ -181,33 +180,37 @@
         // Create a new list item when clicking on the "Add" button
         function newElement2() {
             var li = document.createElement("li");
+            li.setAttribute("class", "list-group-item2");
             var inputValue = document.getElementById("myInput2").value;
             var t = document.createTextNode(inputValue);
             li.appendChild(t);
             if (inputValue === '') {
                 alert("You must write something!");
-            } else {
-                document.getElementById("myUL2").appendChild(li);
+            } else {                
                 addShop(inputValue);
+                document.getElementById("myUL2").appendChild(li);
             }
             document.getElementById("myInput2").value = "";
 
             var span = document.createElement("SPAN");
             var txt = document.createTextNode("\u00D7");
-            span.className = "close";
+            span.className = "closeShop";
             span.appendChild(txt);
             li.appendChild(span);
 
-            for (i = 0; i < close.length; i++) {
-                close[i].onclick = function () {
+            for (i = 0; i < closeShop.length; i++) {
+                closeShop[i].onclick = function () {
                     var div = this.parentElement;
                     div.style.display = "none";
+                    var string = div.innerHTML;
+                    var newString = string.substr(0, string.length - 32);
+                    removeShop(newString);
                 }
             }
         }
     </script>
 
-    <!-- Script to store fridge items -->
+    <!-- Script to store fridge items----------------------------- -->
     <script>
         function add(string) {
             let list = JSON.parse(localStorage.getItem('fridgeList'));
@@ -222,7 +225,7 @@
                 list.push(string);
             }
             else {
-                alert("You already added the recipe!");
+                alert("You already added the item!");
             }
             localStorage.setItem('fridgeList', JSON.stringify(list));
         }
@@ -238,6 +241,31 @@
             }
             localStorage.setItem('fridgeList', JSON.stringify(list));
         }
+
+        function update() {
+            let list = document.getElementById("myUL");
+
+            while (list.hasChildNodes()) {
+                list.removeChild(list.firstChild);
+            }
+            let storageList = JSON.parse(localStorage.getItem('fridgeList'));
+
+            for (let i = 0; i < storageList.length; i++) {
+                list.innerHTML += '<li class="list-group-item">' + storageList[i] + '<span class="close">×</span></li>';
+                
+            }
+            for (i = 0; i < close.length; i++) {
+                close[i].onclick = function () {
+                    var div = this.parentElement;
+                    div.style.display = "none";
+                    var string = div.innerHTML;
+                    var newString = string.substr(0, string.length - 28);
+                    remove(newString);
+                }
+            }
+
+        }
+
     </script>
 
     <!-- Script to store shopping list items -->
@@ -255,7 +283,7 @@
                 list.push(string);
             }
             else {
-                alert("You already added the recipe!");
+                alert("You already added the item!");
             }
             localStorage.setItem('shoppingList', JSON.stringify(list));
         }
@@ -270,6 +298,38 @@
                 list.splice(index, 1);
             }
             localStorage.setItem('shoppingList', JSON.stringify(list));
+        }
+
+
+        function updateShop() {
+            let list = document.getElementById("myUL2");
+
+            while (list.hasChildNodes()) {
+                list.removeChild(list.firstChild);
+            }
+            let storageList = JSON.parse(localStorage.getItem('shoppingList'));
+
+            for (let i = 0; i < storageList.length; i++) {
+                list.innerHTML += '<li class="list-group-item2">' + storageList[i] + '<span class="closeShop">×</span></li>';
+                
+            }
+            for (i = 0; i < closeShop.length; i++) {
+                closeShop[i].onclick = function () {
+                    var div = this.parentElement;
+                    div.style.display = "none";
+                    var string = div.innerHTML;
+                    var newString = string.substr(0, string.length - 32);
+                    removeShop(newString);
+                }
+            }
+
+        }
+    </script>
+
+    <script>
+        function load() {
+            update();
+            updateShop();
         }
     </script>
 

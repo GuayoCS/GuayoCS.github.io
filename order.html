@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="fridgeBrosStyle.css">
 </head>
 
-<body>
+<body onload="load()">
     <nav class="navbar sticky-top navbar-dark bg-dark">
         <form class="form-inline">
             <object id="fridge-icon" type="image/svg+xml" data="fridge2-svg.svg" height="50" width="40"> Your browser
@@ -46,9 +46,21 @@
                 <div class="row">
                     <div class="col-md-4 order-md-2 mb-4">
                         <h4 class="d-flex justify-content-between align-items-center mb-3">
-                            <span>Shopping cart</span>
+                            <span></span>
                         </h4>
                         <ul class="list-group mb-3">
+                            <ul class="list-group">
+                                <div id="myDIV" class="myDIVheader">
+                                    <h4>Shopping cart</h4>
+                                </div>
+
+                                <ul id="Your order List" class="myULlist">
+
+                                </ul>
+                            </ul>
+
+
+                            <!--
                             <li class="list-group-item d-flex justify-content-between lh-condensed">
                                 <div>
                                     <h6 class="my-0">Salmon Fillet</h6>
@@ -95,6 +107,7 @@
                                 <input type="time" class="form-control" id="time" name="time" min="9:00" max="21:00">
                     
                             </div>
+                        -->
                         </ul>
 
 
@@ -207,7 +220,8 @@
                                 </div>
                             </div>
                             <hr class="mb-4">
-                            <button class="btn btn-primary btn-lg btn-block" type="button" onclick="window.location.href='orderSuccess.html'">Order Delivery</button>
+                            <button class="btn btn-primary btn-lg btn-block" type="button" onclick="window.location.href='orderSuccess.html'">Order
+                                Delivery</button>
                         </form>
                     </div </div> </div> </div> <script>
                         $("#wrapper").toggleClass("toggled");
@@ -215,6 +229,53 @@
                             e.preventDefault();
                             $("#wrapper").toggleClass("toggled");
                         });
+                    </script>
+
+                    <script>
+                        function add(string) {
+                            let list = JSON.parse(localStorage.getItem('shoppingList'));
+                            if (!list) {
+                                list = new Array();
+                            }
+                            let index = list.indexOf(string);
+                            if (index == -1) {
+                                list.push(string);
+                            }
+                            localStorage.setItem('shoppingList', JSON.stringify(list));
+
+                            update();
+                        }
+
+                        function remove(string) {
+                            let list = JSON.parse(localStorage.getItem('shoppingList'));
+                            if (!list) {
+                                list = new Array();
+                            }
+                            let index = list.indexOf(string);
+                            if (index != -1) {
+                                list.splice(index, 1);
+                            }
+                            localStorage.setItem('shoppingList', JSON.stringify(list));
+                            update();
+                        }
+
+                        function update() {
+                            let list = document.getElementById("Your order List");
+
+                            while (list.hasChildNodes()) {
+                                list.removeChild(list.firstChild);
+                            }
+                            let storageList = JSON.parse(localStorage.getItem('shoppingList'));
+
+                            for (let i = 0; i < storageList.length; i++) {
+                                list.innerHTML += '<li class="list-group-item">' + storageList[i] + "</li>";
+                            }
+
+                        }
+
+                        function load() {
+                            update();
+                        }
                     </script>
 
 </body>
