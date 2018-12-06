@@ -49,13 +49,7 @@
                     </div>
                 </div>
 
-                <p>Move icon on a button:
-                        <button type="button" class="btn btn-default btn-sm">
-                          <span class="glyphicon glyphicon-move"></span> Move
-                        </button>
-                      </p>
-                
-
+            
                 <hr>
 
 
@@ -226,8 +220,8 @@
             let storageList = JSON.parse(localStorage.getItem('foodList'));
 
             for (let i = 0; i < storageList.length; i++) {
-                list.innerHTML += '<li class="list-group-item"><button id=source"' + i + '" ondragstart="dragstart_handler(event);"draggable="true">'
-                   + '<span class="glyphicon glyphicon-move"></span>' + storageList[i] + '</button></li>';
+                list.innerHTML += '<li class="list-group-item"><button class="btn btn-info" id=source"' + i + '" ondragstart="dragstart_handler(event);"draggable="true">'
+                   + '<object type="image/svg+xml" data="moveIcon.svg" height="20" width="20"></object>'+ "  " + storageList[i] + '</button></li>';
             }
 
             // <span class="glyphicon glyphicon-move" aria-hidden="true"></span>
