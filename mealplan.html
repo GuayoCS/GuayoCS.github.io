@@ -51,7 +51,8 @@
                 <hr>
 
 
-                <button onclick="saveTable()" class="btn btn-success">Save</button> <!-- This will save the current table to the table?-->
+                <button onclick="saveTable()" class="btn btn-success">Save</button>
+                <!-- This will save the current table to the table?-->
                 <button onclick="loadDefaultTable()" class="btn btn-danger">Reset</button>
                 <!--This will revert the table to the blank-->
 
@@ -193,11 +194,16 @@
         }
 
         function loadDefaultTable() {
+            popUpBeforeLoadDefault()
             var mealTableEmpty = localStorage.getItem('mealTableEmpty');
             if (mealTableEmpty) {
                 document.getElementById('tableSpot').innerHTML = mealTableEmpty;
             }
             update();
+        }
+
+        function popUpBeforeLoadDefault() {
+            confirm("Are you sure you want to reset the current meal plan?");
         }
 
         function update() {
