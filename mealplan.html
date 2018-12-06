@@ -5,7 +5,8 @@
     <title>Fridge Buddy Template</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="fridgeBrosStyle.css">
 </head>
 
@@ -47,6 +48,13 @@
                         <h1>Here's the meal plan for the week</h1>
                     </div>
                 </div>
+
+                <p>Move icon on a button:
+                        <button type="button" class="btn btn-default btn-sm">
+                          <span class="glyphicon glyphicon-move"></span> Move
+                        </button>
+                      </p>
+                
 
                 <hr>
 
@@ -148,6 +156,8 @@
                     </table>
                 </div>
 
+
+
                 <div class="row">
                     <div class="col-md-4">
                         <ul class="list-group">
@@ -155,6 +165,7 @@
                                 <h4>Recipe List</h4>
                             </div>
                             <ul id="Your Recipe List" class="myULlist">
+
                             </ul>
                         </ul>
 
@@ -216,8 +227,10 @@
 
             for (let i = 0; i < storageList.length; i++) {
                 list.innerHTML += '<li class="list-group-item"><button id=source"' + i + '" ondragstart="dragstart_handler(event);"draggable="true">'
-                    + storageList[i] + '</button></li>';
+                   + '<span class="glyphicon glyphicon-move"></span>' + storageList[i] + '</button></li>';
             }
+
+            // <span class="glyphicon glyphicon-move" aria-hidden="true"></span>
         }
 
         function load() {
