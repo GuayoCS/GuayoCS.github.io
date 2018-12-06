@@ -16,7 +16,6 @@
                 does not support svg images</object>
             <button class="btn btn-default" id="side-toggle">Menu</button>
 
-
         </form>
         <span id="nav-title" class="navbar-text">
             Fridge Buddy
@@ -43,15 +42,16 @@
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <h1>Recipe Suggestions</h1>
-                <div id="search-bar">
+
+                <div class="input-group">
+                    <button class="btn btn-default" type="button" onclick="search()">Search</button>
+
                     <input class="form-control" type="text" placeholder="What are you in the mood for today?"
                         aria-label="Search">
-                    <button class="btn btn-default" type="button" onclick="search()">Search</button>
+
                 </div>
 
                 <br>
-
-
 
                 <div class="row">
                     <div class="col-md-6">
@@ -66,13 +66,15 @@
                                             <button class="btn btn-default" onclick='add("Spaghetti")'>add</button>
                                             <button class="btn btn-default" onclick='remove("Spaghetti")'>remove</button>
                                         </td>
-                                        <td>a white, starchy pasta of Italian origin that is made in the form of long strings, boiled, and served with any of a variety of meat, tomato, or other sauces.
+                                        <td>a white, starchy pasta of Italian origin that is made in the form of long
+                                            strings, boiled, and served with any of a variety of meat, tomato, or other
+                                            sauces.
 
                                             <br>
                                             <br>
                                             Ingredients: Pasta, Tomato sauce, Meat (optional), Onions, Parmesean cheese
                                         </td>
-                                    
+
                                     </tr>
                                     <tr id="Chicken Salad">
                                         <td>
@@ -81,10 +83,12 @@
                                             <button class="btn btn-default" onclick='add("Chicken Salad")'>add</button>
                                             <button class="btn btn-default" onclick='remove("Chicken Salad")'>remove</button>
                                         </td>
-                                        <td>Chicken salad is any salad with chicken as a main ingredient. Can also include other vegetables
+                                        <td>Chicken salad is any salad with chicken as a main ingredient. Can also
+                                            include other vegetables
                                             <br>
                                             <br>
-                                            Ingredients: Romaine lettuce, Chicken breast, Ranch dressing, Cherry tomatoes, Parmesean Cheese, Croutons
+                                            Ingredients: Romaine lettuce, Chicken breast, Ranch dressing, Cherry
+                                            tomatoes, Parmesean Cheese, Croutons
                                         </td>
                                     </tr>
                                     <tr id="Brownie">
@@ -97,7 +101,8 @@
                                         <td>A small square of rich chocolate cake, typically containing nuts.
                                             <br>
                                             <br>
-                                            Ingredients: Eggs, Butter, Sugar, Cocoa powder, Coffee grounds, Chocolate, Peanut  
+                                            Ingredients: Eggs, Butter, Sugar, Cocoa powder, Coffee grounds, Chocolate,
+                                            Peanut
                                         </td>
                                     </tr>
                                     <tr id="Cake">
@@ -107,7 +112,8 @@
                                             <button class="btn btn-default" onclick='add("Cake")'>add</button>
                                             <button class="btn btn-default" onclick='remove("Cake")'>remove</button>
                                         </td>
-                                        <td>an item of soft, sweet food made from a mixture of flour, shortening, eggs, sugar, and other ingredients, baked and often decorated.
+                                        <td>an item of soft, sweet food made from a mixture of flour, shortening, eggs,
+                                            sugar, and other ingredients, baked and often decorated.
                                             <br>
                                             <br>
                                             Ingredients: Eggs, Butter, Sugar, Vanilla
@@ -123,7 +129,7 @@
                                         <td>A filet of fish that has been lightly grilled, fried, and seasoned
                                             <br>
                                             <br>
-                                            Ingredients: Salmon fillet, Lemon slices, Butter, Rosemary, Mayonaise 
+                                            Ingredients: Salmon fillet, Lemon slices, Butter, Rosemary, Mayonaise
                                         </td>
                                     </tr>
                                     <tr id="Spicy">
@@ -133,10 +139,12 @@
                                             <button class="btn btn-default" onclick='add("Spicy")'>add</button>
                                             <button class="btn btn-default" onclick='remove("Spicy")'>remove</button>
                                         </td>
-                                        <td>A dish with spices and peppers that usually makes people drink more than a lot of water
+                                        <td>A dish with spices and peppers that usually makes people drink more than a
+                                            lot of water
                                             <br>
                                             <br>
-                                            Ingredients: Egg noodle, Chicken breast, Chili Peppers, Bok choi, Chili oil, Peanuts 
+                                            Ingredients: Egg noodle, Chicken breast, Chili Peppers, Bok choi, Chili
+                                            oil, Peanuts
                                         </td>
                                     </tr>
                                 </tbody>
@@ -216,8 +224,10 @@
             let storageList = JSON.parse(localStorage.getItem('foodList'));
 
             for (let i = 0; i < storageList.length; i++) {
-                list.innerHTML += '<li class="list-group-item">' + "<button onclick=removeFromList(" + i + ")>X</button>" + "  " + storageList[i] + "</li>";
+                list.innerHTML += '<li class="list-group-item">' + "  " + storageList[i] + "<span class='closeShop' onclick=removeFromList(" + i + ")>x</span>" + "</li>";
             }
+
+            // <li class="list-group-item2">sdfsdf<span class="closeShop">×</span></li>
 
         }
 
