@@ -5,7 +5,8 @@
     <title>Fridge Buddy Template</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="fridgeBrosStyle.css">
 </head>
 
@@ -48,10 +49,12 @@
                     </div>
                 </div>
 
+            
                 <hr>
 
 
-                <button onclick="saveTable()" class="btn btn-success">Save</button> <!-- This will save the current table to the table?-->
+                <button onclick="saveTable()" class="btn btn-success">Save</button>
+                <!-- This will save the current table to the table?-->
                 <button onclick="loadDefaultTable()" class="btn btn-danger">Reset</button>
                 <!--This will revert the table to the blank-->
 
@@ -147,6 +150,8 @@
                     </table>
                 </div>
 
+
+
                 <div class="row">
                     <div class="col-md-4">
                         <ul class="list-group">
@@ -154,6 +159,7 @@
                                 <h4>Recipe List</h4>
                             </div>
                             <ul id="Your Recipe List" class="myULlist">
+
                             </ul>
                         </ul>
 
@@ -193,11 +199,16 @@
         }
 
         function loadDefaultTable() {
+            popUpBeforeLoadDefault()
             var mealTableEmpty = localStorage.getItem('mealTableEmpty');
             if (mealTableEmpty) {
                 document.getElementById('tableSpot').innerHTML = mealTableEmpty;
             }
             update();
+        }
+
+        function popUpBeforeLoadDefault() {
+            confirm("Are you sure you want to reset the current meal plan?");
         }
 
         function update() {
@@ -209,9 +220,11 @@
             let storageList = JSON.parse(localStorage.getItem('foodList'));
 
             for (let i = 0; i < storageList.length; i++) {
-                list.innerHTML += '<li class="list-group-item"><button id=source"' + i + '" ondragstart="dragstart_handler(event);"draggable="true">'
-                    + storageList[i] + '</button></li>';
+                list.innerHTML += '<li class="list-group-item"><button class="btn btn-info" id=source"' + i + '" ondragstart="dragstart_handler(event);"draggable="true">'
+                   + '<object type="image/svg+xml" data="moveIcon.svg" height="20" width="20"></object>'+ "  " + storageList[i] + '</button></li>';
             }
+
+            // <span class="glyphicon glyphicon-move" aria-hidden="true"></span>
         }
 
         function load() {
